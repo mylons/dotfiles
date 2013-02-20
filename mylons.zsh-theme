@@ -13,8 +13,13 @@ autoload -U colors && colors
 if [ $UID -eq 0 ]; then NCOLOR="red"; else NCOLOR="green"; fi
 local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 
+# color vars
+eval my_gray='$FG[237]'
+eval my_orange='$FG[214]'
+eval magenta='%{$fg[magenta]%}'
+
 # primary prompt
-PROMPT='$FG[237]----------------[$FG[214]%D$FG[237]]-[$FG[214]%T$FG[237]]--------------------%{$reset_color%}
+PROMPT='$FG[237]----------------[$magenta%D$my_gray]-[$magenta%T$my_gray]--------------------%{$reset_color%}
 $FG[032]%~\
 $(git_prompt_info) \
 $FG[105]%(!.#.»)%{$reset_color%} '
@@ -22,12 +27,9 @@ PROMPT2='%{$fg[red]%}\ %{$reset_color%}'
 RPS1='${return_code}'
 
 
-# color vars
-eval my_gray='$FG[237]'
-eval my_orange='$FG[214]'
-
 # right prompt
-RPROMPT='$my_orange%n@%m%{$reset_color%}%'
+# RPROMPT='$my_orange%n@%m%{$reset_color%}%'
+RPROMPT='$magenta%n@%m%{$reset_color%}%'
 
 # git settings
 ZSH_THEME_GIT_PROMPT_PREFIX="$FG[075](branch:"
