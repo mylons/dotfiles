@@ -55,9 +55,6 @@ export AWS_CREDENTIAL_FILE=$HOME/.aws-credentials-master
 # java paths
 export JAVA_HOME=$(/usr/libexec/java_home)
 
-# aws creds
-export AWS_ACCESS_KEY=AKIAJHAREFXBAH6SBLPA
-export AWS_SECRET_KEY=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
 
 set -o vi
 eval "$(rbenv init -)"
